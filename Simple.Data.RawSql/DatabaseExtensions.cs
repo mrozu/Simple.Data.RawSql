@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Simple.Data.Ado;
 using Simple.Data.Extensions;
 
@@ -92,7 +93,7 @@ namespace Simple.Data.RawSql
             return db.GetAdoAdapter().ExecuteNonQuery(sql, parameters.ObjectToDictionary());
         }
 
-        private static AdoAdapter GetAdoAdapter(this Database db)
+        internal static AdoAdapter GetAdoAdapter(this Database db)
         {
             var adapter = db.GetAdapter();
             var adoAdapter = adapter as AdoAdapter;
